@@ -5,10 +5,10 @@ Created on Mon Sep 18 20:00:29 2023
 
 @author: joshuagibson
 """
-
+'import dependencies'
 import os
 import csv
-
+'define and set variables'
 date = []
 net = []
 difference = []
@@ -27,11 +27,11 @@ difference = 0
 DifferenceRow = []
 
 
-
-main = os.path.join('..', 'budget_data.csv')
+'set path to data resource'
+main = os.path.join('..', 'Resources', 'budget_data.csv')
 
 MonthRow = None
-
+'open and read csv file, skip header row, append variables to each column. Count number of rows for total number of months'
 with open (main) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     next(csvreader, None)
@@ -40,7 +40,7 @@ with open (main) as csvfile:
         net.append(row[1])
         total_months += 1
         total_value += int(row[1])
-        
+        'find the difference between each row in order to find greatest increase and greatest decrease' 
         if MonthRow is not None:
             current_row = int(MonthRow[1])
             next_row = int(row[1])
@@ -54,7 +54,7 @@ with open (main) as csvfile:
                 decrease_date = row[0]
                 
         MonthRow = row    
-        
+        'finding the average change'     
     if net:
          profit_start = int(net[0])
          profit_end = int(net[-1])
@@ -63,7 +63,7 @@ with open (main) as csvfile:
          average_change = total_change / change_months
             
         
-        
+    'print results'    
         
 print("Financial Analysis")
 print("------------------------------------------")
