@@ -64,7 +64,6 @@ with open (main) as csvfile:
             
         
     'print results'    
-        
 print("Financial Analysis")
 print("------------------------------------------")
 print("Total months: ", total_months)
@@ -74,4 +73,15 @@ print("Average change: $", end='')
 print (round(average_change, 2))
 print(f"Greatest Increase In Profits: {increase_date} (${max_increase})")
 print(f"Greatest Decrease In Profits: {decrease_date} (${max_decrease})")
-        
+
+PyBank_txt = os.path.join("PyBank_output.txt")
+with open(PyBank_txt, "w") as txtfile:
+
+    txtfile.write("Financial Analysis\n")
+    txtfile.write("------------------------------------------\n")
+    txtfile.write(f"Total months: {total_months}\n")
+    txtfile.write(f"Total: ${total_value}\n")
+    txtfile.write(f"Average Change:  ${round(average_change, 2)}\n")
+    txtfile.write(f"Greatest Increase in Profits:  {increase_date} (${max_increase})\n")
+    txtfile.write(f"Greatest Decrease in Losses:  {decrease_date} (${max_decrease})\n")
+    
