@@ -78,3 +78,18 @@ print(f"{candidate3}: {round(votes_percentage3, 3)}% ({candidate_votes[candidate
 print("---------------------------------------")
 print("Winner: ", winner)
 print("---------------------------------------")
+
+PyPoll_txt = os.path.join("PyPoll_output.txt")
+with open(PyPoll_txt, "w") as txtfile:
+
+    txtfile.write("Election Results\n")
+    txtfile.write("----------------------------------------\n")
+    txtfile.write(f"Total votes: {total_votes}\n")
+    txtfile.write("---------------------------------------\n")
+    txtfile.write(f"{candidate1}: {round(votes_percentage1, 3)}% ({candidate_votes[candidate1]})\n")
+    txtfile.write(f"{candidate2}: {round(votes_percentage2, 3)}% ({candidate_votes[candidate2]})\n")
+    txtfile.write(f"{candidate3}: {round(votes_percentage3, 3)}% ({candidate_votes[candidate3]})\n")
+    txtfile.write("---------------------------------------\n")
+    txtfile.write(f"Winner: {winner}\n")
+    txtfile.write("---------------------------------------\n")
+    
